@@ -6,7 +6,7 @@ var async = require('async');
 
 var os = require('os');
 
-var algos = require('stratum-pool/lib/algoProperties.js');
+var algos = require('../stratum-pool/algoProperties.js');
 
 
 module.exports = function(logger, portalConfig, poolConfigs){

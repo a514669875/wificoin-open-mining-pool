@@ -30,6 +30,12 @@
         "type": "git",
         "url": "https://github.com/zone117x/node-open-mining-portal.git"
     },
+    "scripts": {
+        "build": "cd multi-hashing && node-gyp rebuild",
+        "start": "pm2 start init.js --node-args='--harmony' --name 'WFCpool'",
+        "stop": "pm2 stop init.js --name 'WFCpool'",
+        "restart": "pm2 restart init.js --node-args='--harmony' --name 'WFCpool'"
+    },
     "dependencies": {
         "async": "^2.5.0",
         "bignum": "^0.12.5",
@@ -45,7 +51,12 @@
         "nonce": "^1.0.4",
         "redis": "^2.7.1",
         "request": "^2.81.0",
-        "stratum-pool": "git://github.com/krisklosterman/node-stratum-pool.git"
+        "pm2": "^2.8.0",
+        "async": "^2.5.0",
+        "base58-native": "^0.1.4",
+        "bignum": "^0.12.5",
+        "bindings": "^1.3.0",
+        "nan": "^2.7.0"
     },
     "engines": {
         "node": ">=8.1.4"

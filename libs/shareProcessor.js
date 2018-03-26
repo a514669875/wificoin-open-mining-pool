@@ -1,5 +1,5 @@
 var redis = require('redis');
-var Stratum = require('stratum-pool');
+var Stratum = require('../stratum-pool');
 
 
 
@@ -70,6 +70,7 @@ module.exports = function(logger, poolConfig){
 
         var redisCommands = [];
 
+        console.log('[share]-------', isValidShare, isValidBlock, shareData.worker, shareData);
         if (isValidShare){
             redisCommands.push(['hincrbyfloat', coin + ':shares:roundCurrent', shareData.worker, shareData.difficulty]);
             redisCommands.push(['hincrby', coin + ':stats', 'validShares', 1]);

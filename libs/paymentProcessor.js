@@ -3,8 +3,8 @@ var fs = require('fs');
 var redis = require('redis');
 var async = require('async');
 
-var Stratum = require('stratum-pool');
-var util = require('stratum-pool/lib/util.js');
+var Stratum = require('../stratum-pool');
+var util = require('../stratum-pool/util.js');
 
 
 module.exports = function (logger) {
@@ -55,7 +55,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
     var logSystem = 'Payments';
     var logComponent = coin;
 
-    var daemon = new Stratum.daemon.interface([processingConfig.daemon], function (severity, message) {
+    var daemon = new Stratum.daemon.interface([processingConfig.daemon], function(severity, message){
         logger[severity](logSystem, logComponent, message);
     });
     var redisClient = redis.createClient(poolOptions.redis.port, poolOptions.redis.host);
@@ -366,6 +366,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
              */
             function (workers, rounds, addressAccount, callback) {
 
+                console.log('[payout]----', workers, rounds, addressAccount);
                 var trySend = function (withholdPercent) {
                     var addressAmounts = {};
                     var totalSent = 0;
@@ -393,6 +394,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
 
                     daemon.cmd('sendmany', [addressAccount || '', addressAmounts], function (result) {
                         //Check if payments failed because wallet doesn't have enough coins to pay for tx fees
+                        console.log('[daemon sendmany]---------', addressAmounts, addressAccount, result);
                         if (result.error && result.error.code === -6) {
                             var higherPercent = withholdPercent + 0.01;
                             logger.warning(logSystem, logComponent, 'Not enough funds to cover the tx fees for sending out payments, decreasing rewards by '

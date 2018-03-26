@@ -1,4 +1,4 @@
-var Stratum = require('stratum-pool');
+var Stratum = require('../stratum-pool/index.js');
 var redis   = require('redis');
 var net     = require('net');
 
@@ -179,6 +179,7 @@ module.exports = function(logger){
             });
         };
 
+        logger.debug(logSystem, logComponent, logSubCat, '[-+-]create pool' + JSON.stringify(poolOptions));
 
         var pool = Stratum.createPool(poolOptions, authorizeFN, logger);
         pool.on('share', function(isValidShare, isValidBlock, data){

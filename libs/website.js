@@ -11,8 +11,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 
-var Stratum = require('stratum-pool');
-var util = require('stratum-pool/lib/util.js');
+var Stratum = require('../stratum-pool');
+var util = require('../stratum-pool/util.js');
 
 var api = require('./api.js');
 
@@ -277,7 +277,7 @@ module.exports = function(logger){
     });
 
     try {
-        app.listen(portalConfig.website.port, portalConfig.website.host, function () {
+        app.listen(portalConfig.website.port, function () {
             logger.debug(logSystem, 'Server', 'Website started on ' + portalConfig.website.host + ':' + portalConfig.website.port);
         });
     }

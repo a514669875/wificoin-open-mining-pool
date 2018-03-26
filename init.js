@@ -12,7 +12,7 @@ var PaymentProcessor = require('./libs/paymentProcessor.js');
 var Website = require('./libs/website.js');
 var ProfitSwitch = require('./libs/profitSwitch.js');
 
-var algos = require('stratum-pool/lib/algoProperties.js');
+var algos = require('./stratum-pool/algoProperties.js');
 
 JSON.minify = JSON.minify || require("node-json-minify");
 
@@ -255,7 +255,7 @@ var spawnPoolWorkers = function(){
 
 var startCliListener = function(){
     
-    let cliHost = '';
+    var cliHost = '';
 
     if (portalConfig.cliHost) {
         cliHost = portalConfig.cliHost;
@@ -404,7 +404,7 @@ var startWebsite = function(){
         portalConfig: JSON.stringify(portalConfig)
     });
     worker.on('exit', function(code, signal){
-        logger.error('Master', 'Website', 'Website process died, spawning replacement...');
+        logger.error('Master', 'Website', 'Website process died, spawning replacement...' + code + signal);
         setTimeout(function(){
             startWebsite(portalConfig, poolConfigs);
         }, 2000);
