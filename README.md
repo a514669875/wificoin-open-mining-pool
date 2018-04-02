@@ -148,8 +148,8 @@ a good pool operator. For starters be sure to read:
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/zone117x/node-open-mining-portal.git nomp
-cd nomp
+git clone https://github.com/wificoin-project/wificoin-open-mining-pool.git wfcpool
+cd wfcpool
 npm update
 ```
 
@@ -493,7 +493,13 @@ Alternatively, you can use a more efficient block notify script written in pure 
 are commented in [scripts/blocknotify.c](scripts/blocknotify.c).
 
 
-#### 3) Start the portal
+#### 3) Build the portal
+
+```bash
+npm run build
+```
+
+#### 4) Start the portal
 
 ```bash
 node init.js
