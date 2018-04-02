@@ -1,0 +1,86 @@
+{
+    "enabled": true,
+    "coin": "wificoin.json",
+
+    "address": "wWfucYmxAqtny5Ck6LEqEPyU6Pm6mnKuhd",
+
+    "rewardRecipients": {
+	        "wNBoDC5wXcViAtHhTSUPvLEH6LQ61Bt2Hj": 10
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "paymentInterval": 20,
+        "minimumPayment": 0.5,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 9665,
+            "user": "tt",
+            "password": "123"
+        }
+    },
+
+    "ports": {
+        "3008": {
+            "diff": 1
+        },
+        "3032": {
+            "diff": 1,
+            "varDiff": {
+                "minDiff": 1,
+                "maxDiff": 512,
+                "targetTime": 15,
+                "retargetTime": 90,
+                "variancePercent": 30
+            }
+        },
+        "3256": {
+            "diff": 1,
+		"varDiff": {
+                "minDiff": 1,
+                "maxDiff": 65536,
+                "targetTime": 15,
+                "retargetTime": 90,
+                "variancePercent": 30
+            }
+			
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 9665,
+            "user": "tt",
+            "password": "123"
+        }
+    ],
+
+    "p2p": {
+        "enabled": true,
+        "host": "127.0.0.1",
+        "port": 19333,
+        "disableTransactions": true
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "ltc",
+        "checkPassword": true,
+        "autoCreateWorker": false
+    },
+
+    "mongoMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "user": "",
+        "pass": "",
+        "database": "ltc",
+        "authMechanism": "DEFAULT"
+    }
+
+}
