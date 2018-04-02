@@ -1,4 +1,4 @@
-# NOMP ![NOMP Logo](https://github.com/wificoin-project/wificoin-open-mining-pool/blob/master/doc/Logo-wificoin.png "NOMP Logo")
+# WFC POOL ![NOMP Logo](https://github.com/wificoin-project/wificoin-open-mining-pool/blob/master/doc/Logo-wificoin.png "NOMP Logo")
 #### Node Open Mining Portal
 
 This portal is an extremely efficient, highly scalable, all-in-one, easy to setup cryptocurrency mining pool written
@@ -107,17 +107,6 @@ Join our subreddit [/r/nomp](http://reddit.com/r/nomp)!
 *Having problems getting the portal running due to some module dependency error?* It's probably because you
 didn't follow the instructions in this README. Please __read the usage instructions__ including [requirements](#requirements) and [downloading/installing](#1-downloading--installing). If you've followed the instructions completely and are still having problems then open an issue here on github or join our #nomp IRC channel and explain your problem :).
 
-If your pool uses NOMP let us know and we will list your website here.
-
-##### Some pools using NOMP or node-stratum-module:
-* http://clevermining.com
-* http://suchpool.pw
-* http://hashfaster.com
-* http://miningpoolhub.com
-* http://kryptochaos.com
-* http://miningpools.tk
-* http://umine.co.uk
-
 Usage
 =====
 
@@ -159,8 +148,8 @@ a good pool operator. For starters be sure to read:
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/zone117x/node-open-mining-portal.git nomp
-cd nomp
+git clone https://github.com/wificoin-project/wificoin-open-mining-pool.git wfcpool
+cd wfcpool
 npm update
 ```
 
@@ -504,7 +493,13 @@ Alternatively, you can use a more efficient block notify script written in pure 
 are commented in [scripts/blocknotify.c](scripts/blocknotify.c).
 
 
-#### 3) Start the portal
+#### 3) Build the portal
+
+```bash
+npm run build
+```
+
+#### 4) Start the portal
 
 ```bash
 node init.js
